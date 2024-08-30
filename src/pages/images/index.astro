@@ -1,0 +1,118 @@
+---
+import { Image, Picture } from "astro:assets";
+import MainLayout from "../../layouts/MainLayout.astro";
+
+import post05Img from '@images/post-05.png'
+---
+
+<MainLayout title="Imágenes">
+
+    <h1 class="text-5xl text-white">Imágenes</h1>
+
+    <h1>HTML img tag native</h1>
+    <img 
+        loading="eager" 
+        src="/assets/images/post-05.png" 
+        width="250" 
+        height="250"
+    />
+
+    <h1>Base with Image component</h1>
+    <Image
+        src={post05Img} 
+        alt="Imagen 5"
+        width="250" 
+        height="250"
+    />
+
+    <h1>Render 500px || force width/height 250px</h1>
+    <Image
+        src={post05Img} 
+        alt="Imagen 5"
+        width="500" 
+        height="500"
+        style={{
+            width: '250px',
+            height: '250px'
+        }}
+    />
+
+    <h1>Quality low</h1>
+    <Image
+        src={post05Img} 
+        alt="Imagen 5"
+        width="250" 
+        height="250"
+        quality="low"
+    />
+
+    <!-- <h1>Quality medium</h1>
+    <Image
+        src={post05Img} 
+        alt="Imagen 5"
+        width="250" 
+        height="250"
+        quality="mid"
+    /> -->
+
+    <h1>Quality high</h1>
+    <Image
+        src={post05Img} 
+        alt="Imagen 5"
+        width="250" 
+        height="250"
+        quality="high"
+    />
+
+    <h1>Image format</h1>
+    <Image
+        src={post05Img} 
+        alt="Imagen 5"
+        width="250" 
+        height="250"
+        format="avif"
+    />
+
+    <h1>Picture // Formats // witdhs & sizes</h1>
+    <Picture
+        src={post05Img} 
+        alt="Imagen 5"
+        width="250"
+        height="250"
+        formats={['webp', 'avif', 'jpeg']}
+    />
+
+    <h1>Picture // witdhs & sizes</h1>
+    <Picture
+        src={post05Img} 
+        alt="Imagen 5"
+        widths={[240, 540, 720, post05Img.width]}
+        sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, ${post05Img.width}px`}
+        width="250"
+        height="250"
+    />
+
+    <h1>Picture // densities</h1>
+    <Picture
+        src={post05Img} 
+        alt="Imagen 5"
+        width={post05Img.width / 2}
+        densities={[1.5, 2]}
+        style={{
+            width: '250px',
+            height: '250px'
+        }}
+    />
+
+
+    <!-- <div style={{height: '3000px'}}></div>
+
+    <img loading="lazy" src="/assets/images/post-05.png" width="250" height="250"/> -->
+
+</MainLayout>
+
+<style>
+    h1{
+        @apply text-white mt-10;
+    }
+</style>
