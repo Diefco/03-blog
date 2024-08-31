@@ -6,12 +6,7 @@ export const GET: APIRoute = async ({ params, request, site }) => {
   const blogPosts = await getCollection("blog");
 
   return rss({
-export const GET: APIRoute = ({ params, request }) => {
-  return new Response(
-    JSON.stringify({
-      path: new URL(request.url).pathname,
-    })
-  );
+    // stylesheet: "/styles/rss.xsl",
     // `<title>` field in output xml
     title: "Diefco Blog",
     // `<description>` field in output xml
